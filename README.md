@@ -26,7 +26,7 @@ The memory management subsystem uses a buddy system to manage dynamic memory all
 **2. Helper Functions:**
 - **index_to_level:** Maps a bit array index to its tree level.
 - **get_buddy:** Identifies the buddy of a given block to facilitate merging during deallocation.
-- **split_node:** Splits a larger block into two smaller blocks when necessary.
+- **split_node:** Splits a larger block into two smaller blocks when necessary (in allocation).
 - **addr_to_index:** Converts a memory address to the corresponding bit array index, determining the block’s position.
 
 **3. Allocation and Deallocation:**
@@ -46,7 +46,7 @@ The task management system maintains multiple tasks, each represented by a Task 
 - Contains task information, including stack pointers, task state, deadline, and priority.
 
 **2. Task Scheduling:**
-- Tasks are scheduled based on a priority-deadline algorithm. The scheduler selects the task with the earliest deadline that is ready to run.
+- Tasks are scheduled based on an earliest-deadline-first algorithm. The scheduler selects the task with the earliest deadline that is ready to run.
 - A null task ensures the CPU never enters an idle state by executing when no other tasks are available.
 
 **3. Context Switching:**
